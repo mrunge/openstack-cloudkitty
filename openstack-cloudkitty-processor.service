@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenStack Billing and Usage Reporter processor service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=cloudkitty
+ExecStart=/usr/bin/cloudkitty-processor --logfile /var/log/cloudkitty/api.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
